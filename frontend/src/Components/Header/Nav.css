@@ -5,6 +5,7 @@
   background-color: transparent !important;
 }
 
+
 li {
   margin-left: 10px;
 }
@@ -60,9 +61,14 @@ button {
   color: red !important;
   transition: 0.5s;
 }
-
+.navbaainerr-brand {
+}
 @media screen and (max-width: 358px) {
   .nav_logo {
     width: 127px;
   }
+}
+.nav-link {
+  color: #fff;
+  font-size: 20px;
 }

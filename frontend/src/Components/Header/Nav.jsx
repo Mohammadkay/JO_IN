@@ -13,10 +13,13 @@ export default function Nav() {
   };
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+      <nav
+        className="navbar navbar-expand-lg navbar-light  mask-custom shadow-0"
+        style={{ background: "#ffffff2b", position: "absolute", zIndex: "2", width: "100%" }}
+      >
         <div className="container">
           <a className="navbaainerr-brand" href="#!">
-            <img style={{ width: "150px" }} src="./image/Logo.png" alt="lOGO" />
+            <img style={{ width: "100px" }} src="./image/Logo.png" alt="lOGO" />
           </a>
           <button
             className="navbar-toggler"
@@ -34,57 +37,37 @@ export default function Nav() {
             className={IsTogle ? "collapse navbar-collapse show" : "collapse navbar-collapse "}
             id="navbarSupportedContent"
           >
-            <ul className="navbar-nav me-auto">
+            <ul className="navbar-nav me-auto ps-5">
               <li className="nav-item">
                 <a className="nav-link" href="#!">
-                  Offer
+                  Home
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#!">
-                  Features
+                  About Us
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#!">
-                  Portfolio
+                  Customer Says
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#!">
-                  Reference
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#!">
-                  About
-                </a>
-              </li>
+
               <li className="nav-item">
                 <a className="nav-link" href="#!">
                   Team
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#!">
-                  Contact
-                </a>
-              </li>
-            </ul>
-            <ul className="navbar-nav d-flex flex-row">
               <li className="nav-item me-3 me-lg-0">
                 <a className="nav-link" href="#!">
-                  <i className="fas fa-shopping-cart"></i>
+                  Login
                 </a>
               </li>
+
               <li className="nav-item me-3 me-lg-0">
                 <a className="nav-link" href="#!">
-                  <i className="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li className="nav-item me-3 me-lg-0">
-                <a className="nav-link" href="#!">
-                  <i className="fab fa-instagram"></i>
+                  Register
                 </a>
               </li>
             </ul>
