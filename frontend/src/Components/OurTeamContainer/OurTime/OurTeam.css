@@ -1,0 +1,15 @@
+.ourTeam {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  align-items: center;
+  margin: 22px 0;
+}
+.ourTeam img {
+  width: 65%;
+  border-radius: 50%;
+ 
+}
+.ourTeamSection {
+  width: 30%;
+}

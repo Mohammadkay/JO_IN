@@ -3,6 +3,7 @@ import Nav from "./Components/Header/Nav";
 import AboutUs from "./Components/LandingPage/Aboutus/AboutUs";
 import Testimonial from "./Components/LandingPage/testimonial/Testimonial";
 import Footer from "./Components/Footer/Footer";
+import OurTeamContainer from "./Components/OurTeamContainer/ourTeamContainer";
 function App() {
   return (
     <div>
@@ -10,6 +11,7 @@ function App() {
       <SlideImg />
       <AboutUs />
       <Testimonial />
+      <OurTeamContainer />
       <Footer />
     </div>
   );
