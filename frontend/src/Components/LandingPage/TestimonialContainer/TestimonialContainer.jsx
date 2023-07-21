@@ -4,7 +4,7 @@ import "./testimonial/Testimonial.css"
 export default function TestimonialContainer() {
   return (
  
-      <section className="testimonial-container">
+      <section className="testimonial-container" id="Testimonial">
         <div className="testimonial-text-wrapper">
           <h1 className="section-sub-title">What they say about us</h1>
         </div>

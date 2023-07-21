@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Nav.css";
 import "../../../node_modules/bootstrap/dist/js/bootstrap.js";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
+import { Link } from "react-router-dom";
 export default function Nav() {
   const [IsTogle, setTogle] = useState(false);
   const handeltogle = () => {
@@ -15,12 +16,12 @@ export default function Nav() {
     <header>
       <nav
         className="navbar navbar-expand-lg navbar-light  mask-custom shadow-0"
-        style={{ background: "#ffffff2b", position: "absolute", zIndex: "2", width: "100%" }}
+        style={{ background: "rgb(176 176 176)", width: "100%" }}
       >
         <div className="container">
-          <a href="#!">
+          <Link to="/">
             <img style={{ width: "100px" }} src="./image/Logo.png" alt="lOGO" />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -39,38 +40,43 @@ export default function Nav() {
           >
             <ul className="navbar-nav me-auto ps-5">
               <li className="nav-item">
-                <a className="nav-link" href="#!">
+                <Link className="nav-link" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#!">
+                <a className="nav-link" href="/#AboutUS">
                   About Us
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#!">
-                  Customer Says
+                <a className="nav-link" href="#Testimonial">
+                  Testimonial
                 </a>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" href="#!">
+                <a className="nav-link" href="#Team">
                   Team
                 </a>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/TourList">
+                  Tours
+                </Link>
               </li>
             </ul>
             <ul className="navbar-nav  ps-5">
               <li className="nav-item me-3 me-lg-0">
-                <a className="nav-link" href="#!">
+                <Link className="nav-link" to="Login">
                   Login
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item me-3 me-lg-0">
-                <a className="nav-link" href="#!">
+                <Link className="nav-link" to="/Choose">
                   Register
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -1,13 +1,8 @@
-
-
 import React from "react";
 import "./Check.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import { faCheckSquare } from "@fortawesome/free-regular-svg-icons";
-import { faCcVisa, faCcMastercard } from "@fortawesome/free-brands-svg-icons";
+
 import visa from "./images/visa.png";
-import master from "./images/MasterCard.png"
+import master from "./images/MasterCard.png";
 
 const Check = () => {
   return (
@@ -35,13 +30,10 @@ const Check = () => {
               </div>
             </div>
             <p>
-              Insurance claim and all necessary dependencies will be submitted
-              to your insurer for the covered portion of this order.
+              Insurance claim and all necessary dependencies will be submitted to your insurer for the covered portion
+              of this order.
             </p>
-            <div
-              className="p-2 d-flex justify-content-between align-items-center"
-              style={{ backgroundColor: "#eee" }}
-            >
+            <div className="p-2 d-flex justify-content-between align-items-center" style={{ backgroundColor: "#eee" }}>
               <span>Aetna - Open Access</span>
               <span>Aetna - OAP</span>
             </div>
@@ -56,26 +48,13 @@ const Check = () => {
               </div>
             </div>
             <p>
-              Insurance claim and all necessary dependencies will be submitted
-              to your insurer for the covered portion of this order.
+              Insurance claim and all necessary dependencies will be submitted to your insurer for the covered portion
+              of this order.
             </p>
             <div className="d-flex flex-column mb-3">
-              <div
-                className="btn-group-vertical"
-                role="group"
-                aria-label="Vertical button group"
-              >
-                <input
-                  type="radio"
-                  className="btn-check"
-                  name="options"
-                  id="option1"
-                  autoComplete="off"
-                />
-                <label
-                  className="btn btn-outline-primary btn-lg"
-                  htmlFor="option1"
-                >
+              <div className="btn-group-vertical" role="group" aria-label="Vertical button group">
+                <input type="radio" className="btn-check" name="options" id="option1" autoComplete="off" />
+                <label className="btn btn-outline-primary btn-lg" htmlFor="option1">
                   <div className="d-flex justify-content-between">
                     <span>
                       <img className="bankimg" src={visa} alt="" />
@@ -85,25 +64,11 @@ const Check = () => {
                   </div>
                 </label>
 
-                <input
-                  type="radio"
-                  className="btn-check"
-                  name="options"
-                  id="option2"
-                  autoComplete="off"
-                  checked
-                />
-                <label
-                  className="btn btn-outline-primary btn-lg"
-                  htmlFor="option2"
-                >
+                <input type="radio" className="btn-check" name="options" id="option2" autoComplete="off" checked />
+                <label className="btn btn-outline-primary btn-lg" htmlFor="option2">
                   <div className="d-flex justify-content-between">
                     <span>
-                      <img
-                        className="bankimg"
-                        src={master}
-                        alt=""
-                      />
+                      <img className="bankimg" src={master} alt="" />
                       MASTER CARD
                     </span>
                     <span>**** 5038</span>
@@ -111,9 +76,7 @@ const Check = () => {
                 </label>
               </div>
             </div>
-            <div className="btn btn-success btn-lg btn-block">
-              Proceed to payment
-            </div>
+            <div className="btn btn-success btn-lg btn-block">Proceed to payment</div>
           </div>
         </div>
         <div className="col-md-5 col-lg-4 col-xl-4 offset-lg-1 offset-xl-2">
@@ -166,4 +129,3 @@ const Check = () => {
 };
 
 export default Check;
-

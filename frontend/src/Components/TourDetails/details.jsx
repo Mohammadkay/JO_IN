@@ -4,7 +4,7 @@ import "./css/style.css";
 
 function Details() {
   return (
-    <div className="container">
+    <div className="Card-container">
       <div className="box">
         <div className="images">
           <div className="img-holder active">

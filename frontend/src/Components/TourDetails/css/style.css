@@ -8,7 +8,7 @@
   margin: 0;
 }
 
-.container {
+.Card-container {
   background-color: rgb(242, 242, 242);
   min-height: 100vh;
   display: flex;
