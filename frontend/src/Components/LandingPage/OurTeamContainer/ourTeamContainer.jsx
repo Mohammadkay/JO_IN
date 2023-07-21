@@ -17,7 +17,7 @@ export default function ourTeamContainer() {
         <OurTeam img="./image/jehad.jpg" name="Jehad Mansra" />
         <OurTeam img="./image/Kayyali.jpg" name="Mohammad Alkayyali" />
 
-        <OurTeam img="./image/Kayyali.jpg" name="Mohammad Alkayyali" />
+        <OurTeam img="./image/amer.png" name="Amer Naser" />
         <OurTeam img="./image/Kayyali.jpg" name="Mohammad Alkayyali" />
       </div>
     </div>
