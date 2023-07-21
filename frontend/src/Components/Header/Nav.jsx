@@ -18,7 +18,7 @@ export default function Nav() {
         style={{ background: "#ffffff2b", position: "absolute", zIndex: "2", width: "100%" }}
       >
         <div className="container">
-          <a className="navbaainerr-brand" href="#!">
+          <a href="#!">
             <img style={{ width: "100px" }} src="./image/Logo.png" alt="lOGO" />
           </a>
           <button
@@ -59,6 +59,8 @@ export default function Nav() {
                   Team
                 </a>
               </li>
+            </ul>
+            <ul className="navbar-nav  ps-5">
               <li className="nav-item me-3 me-lg-0">
                 <a className="nav-link" href="#!">
                   Login

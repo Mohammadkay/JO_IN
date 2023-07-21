@@ -36,6 +36,7 @@
   grid-template-rows: repeat(2, 1fr);
   width: 94%;
   margin: auto;
+  gap: 10px;
 }
 
 .testimonial-card {
@@ -44,6 +45,7 @@
   gap: 1rem;
   flex-direction: column;
   cursor: pointer;
+  padding: 15px;
 }
 
 .testimonial-card:hover {

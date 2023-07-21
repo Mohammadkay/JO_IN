@@ -34,7 +34,7 @@ function Details() {
           </div>
           <span>$250</span>
           <div className="options">
-            <a href="#">Book Now</a>
+            <a href="!#">Book Now</a>
           </div>
         </div>
         <div className="description">
