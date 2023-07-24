@@ -22,7 +22,6 @@ function App() {
         <Route path="/Choose" element={<Choose />} />
         <Route path="/Register" element={<Register />} />
       </Routes>
-
       <Footer />
     </div>
   );
