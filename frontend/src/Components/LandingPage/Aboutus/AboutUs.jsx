@@ -3,7 +3,7 @@ import React from "react";
 export default function AboutUs() {
   return (
     <>
-      <div className="">
+      <div id="AboutUS">
         <div className="container py-5">
           <div className="row h-100 align-items-center py-5">
             <div className="col-lg-6">
