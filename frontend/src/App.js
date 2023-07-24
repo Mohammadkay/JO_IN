@@ -4,15 +4,18 @@ import AboutUs from "./Components/LandingPage/Aboutus/AboutUs";
 import Testimonial from "./Components/LandingPage/testimonial/Testimonial";
 import Footer from "./Components/Footer/Footer";
 import OurTeamContainer from "./Components/OurTeamContainer/ourTeamContainer";
+import HistorySection from "./Components/History/HistorySection"
+
 function App() {
   return (
     <div>
-      <Nav />
+      {/* <Nav />
       <SlideImg />
       <AboutUs />
       <Testimonial />
-      <OurTeamContainer />
-      <Footer />
+      <OurTeamContainer /> */}
+      <HistorySection />
+      {/* <Footer /> */}
     </div>
   );
 }
