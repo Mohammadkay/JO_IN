@@ -36,7 +36,7 @@ exports.createUser = asyncHandler(async (req, res) => {
       email,
       password: hashedPassword,
       phoneNumber,
-      isActive: false // You might want to set this to a default value or use it based on some other condition
+      isActive: false, // You might want to set this to a default value or use it based on some other condition
     });
 
     const { _id, isActive } = user;
@@ -45,7 +45,7 @@ exports.createUser = asyncHandler(async (req, res) => {
       name,
       email,
       phoneNumber,
-      isActive
+      isActive,
     });
   } catch (error) {
     res.status(400);
@@ -60,13 +60,13 @@ exports.getUsers = async (req, res) => {
       status: "success",
       results: users.length,
       data: {
-        users
-      }
+        users,
+      },
     });
   } catch (err) {
     res.status(404).json({
       status: "Failed",
-      message: err
+      message: err.message,
     });
   }
 };
@@ -76,13 +76,13 @@ exports.getUser = async (req, res) => {
     res.status(200).json({
       status: "success",
       data: {
-        user
-      }
+        user,
+      },
     });
   } catch (err) {
     res.status(404).json({
       status: "Failed",
-      message: err
+      message: err.message,
     });
   }
 };
