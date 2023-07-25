@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TourCard from "../Components/tourCard/tourCard";
 import "../Components/tourCard/tourCard.css";
-import { tourItems, badges } from "./TourDataTest";
-import BadgeCard from "../Components/tourCard/Test";
+// import { tourItems, badges } from "./TourDataTest";
+// import BadgeCard from "../Components/tourCard/Test";
 import Pagination from "../Components/tourCard/Pagination";
+import axios from "axios";
 
 function TourList() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [tourPerPage, setTourPerPage] = useState(6);
+  const [tourPerPage] = useState(6);
+  const [allTours, setAllTours] = useState([]);
+
+  const fetchTours = async () => {
+    const res = await axios.get("/Api/JO_IN/tours");
+    console.log(res.data);
+    setAllTours(res.data.tours);
+  };
+  useEffect(() => {
+    fetchTours();
+  }, []);
 
   // Get current tour
   const indexOfLastTour = currentPage * tourPerPage;
   const indexOfFirstTour = indexOfLastTour - tourPerPage;
-  const currentToursList = tourItems.slice(indexOfFirstTour, indexOfLastTour);
+  const currentToursList = allTours.slice(indexOfFirstTour, indexOfLastTour);
 
   // Chang page
   const paginate = (pageNum) => {
@@ -35,9 +46,10 @@ function TourList() {
                 key={item.id}
                 name={item.name}
                 price={item.price}
-                image={item.images}
+                // image={item.images}
                 duration={item.duration}
               />
+
               //   <BadgeCard
               //     key={item.id}
               //     title={item.name}
@@ -50,7 +62,7 @@ function TourList() {
           })}
           <Pagination
             tourPerPage={tourPerPage}
-            totalTour={tourItems.length}
+            totalTour={allTours.length}
             paginate={paginate}
           />
         </div>
