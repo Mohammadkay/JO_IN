@@ -1,24 +1,29 @@
-import SlideImg from "./Components/LandingPage/Sliderimg/Sliderimg";
 import Nav from "./Components/Header/Nav";
-import AboutUs from "./Components/LandingPage/Aboutus/AboutUs";
-import Testimonial from "./Components/LandingPage/testimonial/Testimonial";
 import Footer from "./Components/Footer/Footer";
-import OurTeamContainer from "./Components/OurTeamContainer/ourTeamContainer";
-import TourList from "./Pages/TourList";
-import Login from "./Components/logIn/Register/Login/login";
-import Register from "./Components/logIn/Register/Register/register";
-import Choose from "./Components/logIn/Register/ChooseC/choose";
+import LandingPage from "./Pages/Landingpage";
+import TourList from "./Pages/TourList.jsx";
+import Login from "./Components/logIn/Login/login";
+import Choose from "./Components/logIn/ChooseC/choose";
+import Register from "./Components/logIn/Register/register";
+import TourDetails from "./Components/TourDetails/details";
+import Check from "./Components/CheckOut/Check";
+
+import { Route, Routes } from "react-router-dom";
 function App() {
   return (
     <div>
-      <Choose/>
-      {/* <Nav />
-      <SlideImg />
-      <AboutUs />
-      <Testimonial />
-      <OurTeamContainer />
+      <Nav />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/TourList" element={<TourList />} />
+        <Route path="/TourList/TourDetails" element={<TourDetails />} />
+        <Route path="/TourList/TourDetails/CheckOut" element={<Check />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Choose" element={<Choose />} />
+        <Route path="/Register" element={<Register />} />
+      </Routes>
 
-      <Footer /> */}
+      <Footer /> 
       {/* <Login/> */}
       {/* <Register/> */}
     </div>
