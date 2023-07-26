@@ -25,7 +25,9 @@ function App() {
         <Route path="/Register" element={<Register />} />
       </Routes>
 
-      <Footer />
+      <Footer /> 
+      {/* <Login/> */}
+      {/* <Register/> */}
     </div>
   );
 }
