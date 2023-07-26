@@ -7,12 +7,14 @@ import Choose from "./Components/logIn/ChooseC/choose";
 import Register from "./Components/logIn/Register/register";
 import TourDetails from "./Components/TourDetails/details";
 import Check from "./Components/CheckOut/Check";
+import HistorySection from "./Components/History/HistorySection";
 
 import { Route, Routes } from "react-router-dom";
 function App() {
   return (
     <div>
       <Nav />
+      <HistorySection/>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/TourList" element={<TourList />} />
@@ -22,7 +24,6 @@ function App() {
         <Route path="/Choose" element={<Choose />} />
         <Route path="/Choose/:id" element={<Register />} />
       </Routes>
-
       <Footer />
     </div>
   );

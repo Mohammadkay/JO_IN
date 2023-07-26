@@ -6,13 +6,13 @@ const createRole = async (req, res) => {
   try {
     const role = await Role.create({
       id,
-      roleName
+      roleName,
     });
     res.status(201).json({
       status: "success",
       data: {
-        role
-      }
+        role,
+      },
     });
   } catch (err) {
     res.status(404).json({ status: "Failed", message: err.message });
