@@ -3,6 +3,7 @@ const Tour = require("../Model/tourModel");
 exports.getAllTours = async (req, res) => {
   try {
     const tours = await Tour.find();
+    console.log(req.body);
     res.status(201).json({
       status: "success",
       results: tours.length,
