@@ -1,4 +1,5 @@
 const User = require("../Model/userModel");
+const Tour = require("../Model/tourModel");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
 
@@ -70,6 +71,19 @@ exports.getUsers = async (req, res) => {
     });
   }
 };
+// exports.getVendor = async (req, res) => {
+//   try {
+//     const specificVendor = await vendor
+//       .findById(req.params.id)
+//       .populate("product");
+//     res.status(200).json({ status: "success", data: { specificVendor } });
+//   } catch (err) {
+//     console.log("Error🔥", err);
+//   }
+// };
+
+
+
 exports.getUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -86,3 +100,4 @@ exports.getUser = async (req, res) => {
     });
   }
 };
+

@@ -6,12 +6,12 @@ const userToursSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId, 
     ref: User, 
-    required: true,
+    // required: true,
   },
   tourId: {
     type: mongoose.Schema.Types.ObjectId, 
     ref: Tour, 
-    required: true,
+    // required: true,
   },
 });
 

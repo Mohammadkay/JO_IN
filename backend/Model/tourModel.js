@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const User =require("./userModel")
 const tourSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -45,6 +45,10 @@ const tourSchema = new mongoose.Schema({
     select: false,
   },
   startDate: [Date],
+  userId: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+  },
 });
 
 const Tour = mongoose.model("Tour", tourSchema);
