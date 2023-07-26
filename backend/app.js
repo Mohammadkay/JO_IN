@@ -4,9 +4,10 @@ const usersRoute = require("./Router/usersRoute");
 const roleRoute = require("./Router/roleRoute");
 const errorHandler = require("./errorMiddleware");
 const toursRoute = require("./Router/tourRoute");
+const cors = require("cors");
 
 const app = express();
-
+app.use(cors());
 // 1) MIDDLEWARES
 app.use(morgan("dev"));
 
