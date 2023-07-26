@@ -66,10 +66,11 @@ exports.getUsers = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: "Failed",
-      message: err
+      message: err.message
     });
   }
 };
+
 exports.getUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
