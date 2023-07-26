@@ -75,6 +75,23 @@ exports.getOneTour = async (req, res) => {
   }
 };
 
+exports.getAllToursForOneUser = async (req, res) => {
+  try {
+    const tour = await Tour.find();
+    res.status(200).json({
+      status: "success",
+      data: {
+        tour,
+      },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      message: err.message,
+    });
+  }
+};
+
 exports.deleteTour = async (req, res) => {
   try {
     await Tour.findByIdAndDelete(req.params.id);
