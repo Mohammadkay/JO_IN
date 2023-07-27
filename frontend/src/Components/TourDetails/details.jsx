@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import "./css/all.min.css";
 import "./css/style.css";
-
+import { useParams } from "react-router-dom";
+import axios from "axios";
 function Details() {
+  const params = useParams();
+  const [tour, setTour] = useState();
+  const fetchTour = async () => {
+    const res = await axios.get(`/Api/JO_IN/tours/${params.id}`);
+    console.log(res.data);
+    setTour(res.data);
+  };
+  useEffect(() => {
+    fetchTour();
+  }, []);
+  console.log(tour);
+
   return (
     <div className="Card-container">
       <div className="box">
