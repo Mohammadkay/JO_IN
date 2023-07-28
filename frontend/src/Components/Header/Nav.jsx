@@ -35,7 +35,11 @@ export default function Nav() {
             <i className="fas fa-bars"></i>
           </button>
           <div
-            className={IsTogle ? "collapse navbar-collapse show" : "collapse navbar-collapse "}
+            className={
+              IsTogle
+                ? "collapse navbar-collapse show"
+                : "collapse navbar-collapse "
+            }
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav me-auto ps-5">
@@ -63,6 +67,12 @@ export default function Nav() {
               <li className="nav-item">
                 <Link className="nav-link" to="/TourList">
                   Tours
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link className="nav-link" to="/dash">
+                  Dash
                 </Link>
               </li>
             </ul>

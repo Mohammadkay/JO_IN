@@ -1,24 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import TourCard from "../Components/tourCard/tourCard";
 import "../Components/tourCard/tourCard.css";
 // import { tourItems, badges } from "./TourDataTest";
 // import BadgeCard from "../Components/tourCard/Test";
 import Pagination from "../Components/tourCard/Pagination";
 import axios from "axios";
+import { allData } from "../context/context";
 
 function TourList() {
   const [currentPage, setCurrentPage] = useState(1);
   const [tourPerPage] = useState(6);
-  const [allTours, setAllTours] = useState([]);
+  const {fetchTours ,allTours }=useContext(allData)
+  console.log(allTours)
+  // const [allTours, setAllTours] = useState([]);
 
-  const fetchTours = async () => {
-    const res = await axios.get("/Api/JO_IN/tours");
-    console.log(res.data);
-    setAllTours(res.data.tours);
-  };
-  useEffect(() => {
-    fetchTours();
-  }, []);
+  // const fetchTours = async () => {
+  //   const res = await axios.get("/Api/JO_IN/tours");
+  //   console.log(res.data);
+  //   setAllTours(res.data.tours);
+  // };
+  // useEffect(() => {
+  //   fetchTours();
+  // }, []);
 
   // Get current tour
   const indexOfLastTour = currentPage * tourPerPage;

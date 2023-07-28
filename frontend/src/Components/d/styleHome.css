@@ -1,0 +1,8 @@
+.dash-add-product {
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: #9e3040;
+    display: flex;
+    align-items: center;
+}
