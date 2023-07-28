@@ -1,15 +1,25 @@
 import React from "react";
 import "./rEgister.css";
 import Sea from "./deadsea.jpg";
-import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 function Register() {
+  const navigate = useNavigate();
   let params = useParams();
   console.log(params.id);
 
   return (
     <div>
-      <div className="register " style={{ backgroundImage: `url(${Sea})`, height: "100vh", backgroundSize: "cover" }}>
+      <div
+        className="register "
+        style={{
+          backgroundImage: `url(${Sea})`,
+          height: "100vh",
+          backgroundSize: "cover",
+        }}
+      >
         <div className="FORM">
           <form>
             <h3>Join Us</h3>
@@ -21,20 +31,32 @@ function Register() {
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Email address
               </label>
-              <input type="email" className="form-control" id="exampleInputEmail1" />
+              <input
+                type="email"
+                className="form-control"
+                id="exampleInputEmail1"
+              />
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">
                 Password
               </label>
-              <input type="password" className="form-control" id="exampleInputPassword1" />
+              <input
+                type="password"
+                className="form-control"
+                id="exampleInputPassword1"
+              />
             </div>
 
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">
                 Retype password
               </label>
-              <input type="password" className="form-control" id="exampleInputPassword1" />
+              <input
+                type="password"
+                className="form-control"
+                id="exampleInputPassword1"
+              />
             </div>
             <label htmlFor="phone" className="form-label">
               Phone number
@@ -55,10 +77,18 @@ function Register() {
                 <option>Salt</option>
               </select>
             </div>
-
-            <button type="submit" className="btn ">
+            <Link>
+            <button
+              type="submit"
+              className="btn"
+              // onClick={() => {
+              //   navigate("/LandingPage");
+              // }}
+            >
               Submit
             </button>
+            </Link>
+            
           </form>
         </div>
       </div>

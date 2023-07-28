@@ -14,7 +14,7 @@ function App() {
   return (
     <div>
       <Nav />
-      <HistorySection/>
+      {/* <HistorySection/> */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/TourList" element={<TourList />} />
