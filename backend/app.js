@@ -7,8 +7,8 @@ const toursRoute = require("./Router/tourRoute");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
 // 1) MIDDLEWARES
+app.use(cors());
 app.use(morgan("dev"));
 
 app.use(express.json());

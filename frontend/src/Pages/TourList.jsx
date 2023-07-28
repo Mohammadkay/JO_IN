@@ -6,6 +6,7 @@ import "../Components/tourCard/tourCard.css";
 import Pagination from "../Components/tourCard/Pagination";
 import axios from "axios";
 import { allData } from "../context/context";
+import { useNavigate } from "react-router-dom";
 
 function TourList() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -46,11 +47,12 @@ function TourList() {
           {currentToursList.map((item) => {
             return (
               <TourCard
-                key={item.id}
+                key={item._id}
                 name={item.name}
                 price={item.price}
                 // image={item.images}
                 duration={item.duration}
+                id={item._id}
               />
 
               //   <BadgeCard

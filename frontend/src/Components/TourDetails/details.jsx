@@ -1,30 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import "./css/all.min.css";
 import "./css/style.css";
-
+import { useParams } from "react-router-dom";
+import axios from "axios";
 function Details() {
+  const params = useParams();
+  const [oneTour, setOneTour] = useState();
+  const fetchTour = async () => {
+    const res = await axios.get(`/Api/JO_IN/tours/${params.id}`);
+    setOneTour(res.data.data.tour);
+  };
+  useEffect(() => {
+    fetchTour();
+  }, []);
+
+  console.log(oneTour);
+
   return (
     <div className="Card-container">
       <div className="box">
         <div className="images">
           <div className="img-holder active">
-            <img src="./image/david-rodrigo-Fr6zexbmjmc-unsplash.jpg" alt="#" />
+            <img src="" alt="" />
           </div>
           <div className="img-holder">
-            <img src="./image/david-rodrigo-kZ1zThg6G40-unsplash.jpg" alt="#" />
+            <img src="" alt="" />
           </div>
           <div className="img-holder">
-            <img
-              src="./image/christoph-schulz-jG3I8b5iyHI-unsplash.jpg"
-              alt="#"
-            />
+            <img src="" alt="" />
           </div>
           <div className="img-holder">
-            <img src="./image/faisal-manga-4NeuZU-ynnw-unsplash.jpg" alt="#" />
+            <img src="" alt="" />
           </div>
         </div>
         <div className="basic-info">
-          <h1>Dubai</h1>
+          <h1>{oneTour?.name}</h1>
           <div className="rate">
             <i className="filled fas fa-star" />
             <i className="filled fas fa-star" />
@@ -32,18 +42,13 @@ function Details() {
             <i className="filled fas fa-star" />
             <i className="filled fas fa-star" />
           </div>
-          <span>$250</span>
+          <span>{oneTour?.price}</span>
           <div className="options">
             <a href="!#">Book Now</a>
           </div>
         </div>
         <div className="description">
-          <p>
-            Dubai is a city of skyscrapers, ports, and beaches, where big
-            business takes place alongside sun-seeking tourism. Because of its
-            large expatriate population, it feels like a Middle Eastern melting
-            pot, and the atmosphere is generally tolerant.
-          </p>
+          <p>{oneTour?.description}</p>
           <ul className="features">
             <li>
               <i className="fa-solid fa-circle-check" /> All meals included
