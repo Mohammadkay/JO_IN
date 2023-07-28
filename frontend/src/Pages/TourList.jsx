@@ -5,6 +5,7 @@ import "../Components/tourCard/tourCard.css";
 // import BadgeCard from "../Components/tourCard/Test";
 import Pagination from "../Components/tourCard/Pagination";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function TourList() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -12,8 +13,7 @@ function TourList() {
   const [allTours, setAllTours] = useState([]);
 
   const fetchTours = async () => {
-    const res = await axios.get("Api/JO_IN/tours");
-    console.log(res.data);
+    const res = await axios.get("/Api/JO_IN/tours");
     setAllTours(res.data.tours);
   };
   useEffect(() => {
@@ -35,17 +35,20 @@ function TourList() {
       <section className="discover-container">
         <div className="discover-text-wrapper">
           <h3 className="section-title ">Travelers Point</h3>
-          <h1 className="section-sub-title ">We help to find your dream place</h1>
+          <h1 className="section-sub-title ">
+            We help to find your dream place
+          </h1>
         </div>
         <div className="discover-cards-container animate__animated animate__fadeIn">
           {currentToursList.map((item) => {
             return (
               <TourCard
-                key={item.id}
+                key={item._id}
                 name={item.name}
                 price={item.price}
                 // image={item.images}
                 duration={item.duration}
+                id={item._id}
               />
 
               //   <BadgeCard
@@ -58,7 +61,11 @@ function TourList() {
               //   />
             );
           })}
-          <Pagination tourPerPage={tourPerPage} totalTour={allTours.length} paginate={paginate} />
+          <Pagination
+            tourPerPage={tourPerPage}
+            totalTour={allTours.length}
+            paginate={paginate}
+          />
         </div>
       </section>
     </div>
