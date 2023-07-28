@@ -16,9 +16,9 @@ export default function Nav() {
     <header>
       <nav
         className="navbar navbar-expand-lg navbar-light  mask-custom shadow-0"
-        style={{ background: "rgb(176 176 176)", width: "100%" }}
+        style={{ background: "#fff", width: "100%" }}
       >
-        <div className="container">
+        <div className="container justify-content-around">
           <Link to="/">
             <img style={{ width: "100px" }} src="./image/Logo.png" alt="lOGO" />
           </Link>

@@ -4,12 +4,13 @@
   gap: 17px;
   align-items: center;
   margin: 22px 0;
+  justify-content: center;
+  text-align: center;
 }
 .ourTeam img {
   width: 65%;
   border-radius: 50%;
- 
 }
 .ourTeamSection {
-  width: 30%;
+  width: 30vw;
 }

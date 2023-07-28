@@ -1,17 +1,10 @@
 import React from "react";
 import OurTeam from "./OurTime/OurTeam";
+import "./Teamcontainer.css";
 export default function ourTeamContainer() {
   return (
-    <div style={{ background: "#f4eeee87" }} id="Team">
-      <div
-        style={{
-          gap: "15px",
-          display: "flex",
-          flexWrap: "wrap",
-          margin: "auto",
-          width: "93%"
-        }}
-      >
+    <div id="Team">
+      <div className="TeamContainer">
         <OurTeam img="./image/Abdulraof.jpg" name="Abdulraof Mattur" />
         <OurTeam img="./image/amer.png" name="Amer Naser" />
         <OurTeam img="./image/duha.png" name="Duha Jilani" />

@@ -12,7 +12,7 @@ function TourList() {
   const [allTours, setAllTours] = useState([]);
 
   const fetchTours = async () => {
-    const res = await axios.get("/Api/JO_IN/tours");
+    const res = await axios.get("Api/JO_IN/tours");
     console.log(res.data);
     setAllTours(res.data.tours);
   };
