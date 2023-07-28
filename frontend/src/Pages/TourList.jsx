@@ -60,11 +60,11 @@ function TourList() {
               //   />
             );
           })}
-          <Pagination
+          {/* <Pagination
             tourPerPage={tourPerPage}
             totalTour={allTours.length}
             paginate={paginate}
-          />
+          /> */}
         </div>
       </section>
     </div>

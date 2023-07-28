@@ -1,7 +1,7 @@
 import Nav from "./Components/Header/Nav";
 import Footer from "./Components/Footer/Footer";
 import LandingPage from "./Pages/Landingpage";
-import TourList from "./Pages/TourList.jsx";
+import TourList from "./Pages/TourList";
 import Login from "./Components/logIn/Login/login";
 import Choose from "./Components/logIn/ChooseC/choose";
 import Register from "./Components/logIn/Register/register";
@@ -14,7 +14,7 @@ function App() {
   return (
     <div>
       <Nav />
-      <HistorySection/>
+      <HistorySection />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/TourList" element={<TourList />} />
