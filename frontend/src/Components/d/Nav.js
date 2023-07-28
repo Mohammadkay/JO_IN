@@ -38,7 +38,7 @@ function Nav({ Toggle }) {
               aria-expanded="false"
             >
               {" "}
-              Yousof{" "}
+              {" "}
             </a>{" "}
             <div className="dropdown-menu" aria-labelledby="dropdownId">
               {" "}

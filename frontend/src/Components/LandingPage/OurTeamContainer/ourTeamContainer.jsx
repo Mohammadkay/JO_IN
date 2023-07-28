@@ -4,6 +4,9 @@ import "./Teamcontainer.css";
 export default function ourTeamContainer() {
   return (
     <div id="Team">
+      <div className="testimonial-text-wrapper">
+        <h1 className="section-sub-title">Our Team</h1>
+      </div>
       <div className="TeamContainer">
         <OurTeam img="./image/Abdulraof.jpg" name="Abdulraof Mattur" />
         <OurTeam img="./image/amer.png" name="Amer Naser" />
