@@ -14,7 +14,7 @@ function FromDash() {
     summary: "",
     description: "",
     images: "",
-    userId: user._id
+    userId: user._id,
   });
 
   const navigate = useNavigate();
@@ -39,7 +39,6 @@ function FromDash() {
     event.preventDefault();
     createTour();
     navigate("/dash");
-    console.log(allTours);
   };
 
   return (
@@ -47,15 +46,39 @@ function FromDash() {
       <form onSubmit={handleSubmit} className="tourForm">
         <h5>Add Product</h5>
         <label htmlFor="name">Title</label>
-        <input type="text" id="name" name="name" value={form.name} onChange={(event) => FormData(event)} />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={form.name}
+          onChange={(event) => FormData(event)}
+        />
 
         <label htmlFor="duration">Duration :</label>
-        <input type="text" id="duration" name="duration" value={form.duration} onChange={(event) => FormData(event)} />
+        <input
+          type="text"
+          id="duration"
+          name="duration"
+          value={form.duration}
+          onChange={(event) => FormData(event)}
+        />
 
         <label htmlFor="price">Price:</label>
-        <input type="text" id="price" name="price" value={form.price} onChange={(event) => FormData(event)} />
+        <input
+          type="text"
+          id="price"
+          name="price"
+          value={form.price}
+          onChange={(event) => FormData(event)}
+        />
         <label htmlFor="summary">Summary:</label>
-        <input type="text" id="summary" name="summary" value={form.summary} onChange={(event) => FormData(event)} />
+        <input
+          type="text"
+          id="summary"
+          name="summary"
+          value={form.summary}
+          onChange={(event) => FormData(event)}
+        />
 
         <label htmlFor="description">Description:</label>
         <input
@@ -66,7 +89,13 @@ function FromDash() {
           onChange={(event) => FormData(event)}
         />
         <label htmlFor="images">images:</label>
-        <input type="text" id="images" name="images" value={form.images} onChange={(event) => FormData(event)} />
+        <input
+          type="text"
+          id="images"
+          name="images"
+          value={form.images}
+          onChange={(event) => FormData(event)}
+        />
 
         <button className="add-product">Add Tour</button>
       </form>

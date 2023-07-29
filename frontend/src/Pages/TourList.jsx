@@ -11,18 +11,8 @@ import { useNavigate } from "react-router-dom";
 function TourList() {
   const [currentPage, setCurrentPage] = useState(1);
   const [tourPerPage] = useState(6);
-  const {fetchTours ,allTours }=useContext(allData)
-  console.log(allTours)
-  // const [allTours, setAllTours] = useState([]);
-
-  // const fetchTours = async () => {
-  //   const res = await axios.get("/Api/JO_IN/tours");
-  //   console.log(res.data);
-  //   setAllTours(res.data.tours);
-  // };
-  // useEffect(() => {
-  //   fetchTours();
-  // }, []);
+  const { fetchTours, allTours } = useContext(allData);
+  console.log(allTours);
 
   // Get current tour
   const indexOfLastTour = currentPage * tourPerPage;
@@ -50,10 +40,9 @@ function TourList() {
                 key={item._id}
                 name={item.name}
                 price={item.price}
-                 image={item.images}
+                image={item.images}
                 duration={item.duration}
                 id={item._id}
-
               />
 
               //   <BadgeCard
@@ -66,12 +55,13 @@ function TourList() {
               //   />
             );
           })}
-          <Pagination
-            tourPerPage={tourPerPage}
-            totalTour={allTours.length}
-            paginate={paginate}
-          />
         </div>
+
+        <Pagination
+          tourPerPage={tourPerPage}
+          totalTour={allTours.length}
+          paginate={paginate}
+        />
       </section>
     </div>
   );

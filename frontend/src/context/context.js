@@ -22,13 +22,11 @@ export function Provider({ children }) {
     allTours,
     setAllTours,
     fetchUser,
-    
+
     setIsActive,
     isActive,
     userID,
-    setUserID
-
-    
+    setUserID,
   };
   return <allData.Provider value={dataToShare}>{children}</allData.Provider>;
 }

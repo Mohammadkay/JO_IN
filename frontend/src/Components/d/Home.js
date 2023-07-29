@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Nav from "./Nav";
 import { useContext } from "react";
 import { allData } from "../../context/context";
+import Swal from "sweetalert2";
 import "./styleHome.css";
+import axios from "axios";
 function Home({ Toggle }) {
   const { fetchTours, allTours } = useContext(allData);
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user);
+
+  useEffect(() => {
+    fetchTours();
+  }, []);
+
+  const deleteTour = async (id) => {
+    await axios.delete(`/Api/JO_IN/tours/${id}`);
+    fetchTours();
+  };
+
   return (
     <div className="px-3">
       <Nav Toggle={Toggle} />
@@ -30,6 +41,14 @@ function Home({ Toggle }) {
                 <td>{tour?.price}</td>
                 <td>{tour?.description}</td>
                 <td>{tour?.price}</td>
+                <td>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => deleteTour(tour?._id)}
+                  >
+                    delete
+                  </button>
+                </td>
               </tr>
             ))}
         </tbody>
