@@ -15,8 +15,16 @@ function Home({ Toggle }) {
   }, []);
 
   const deleteTour = async (id) => {
-    await axios.delete(`/Api/JO_IN/tours/${id}`);
-    fetchTours();
+    Swal.fire({
+      title: `Are You Sure To Delete ${id} ?`,
+      showCancelButton: true,
+    }).then((data) => {
+      if (data.isConfirmed) {
+        axios.delete(`/Api/JO_IN/tours/${id}`).then(() => {
+          fetchTours();
+        });
+      }
+    });
   };
 
   return (
