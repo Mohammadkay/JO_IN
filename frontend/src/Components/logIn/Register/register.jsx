@@ -2,7 +2,7 @@ import React from "react";
 import "./rEgister.css";
 import Sea from "./deadsea.jpg";
 import { Link } from "react-router-dom";
-
+import Swal from 'sweetalert2'
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import axios from "axios";
@@ -29,22 +29,35 @@ function Register() {
     // Email validation using regular expression
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      alert("Invalid email address. Please enter a valid email.");
+      Swal.fire({
+        title: 'Error!',
+        text: 'Invalid email address. Please enter a valid email.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })
       return;
     }
 
     // Password validation using regular expression
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
     if (!passwordRegex.test(password)) {
-      alert(
-        "Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long."
-      );
+      Swal.fire({
+        title: 'Error!',
+        text: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })
       return;
     }
 
     // Password and Retype password check
     if (password !== repassword) {
-      alert("Passwords do not match.");
+      Swal.fire({
+        title: 'Error!',
+        text: 'Passwords do not match.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })
       return;
     }
 
@@ -80,7 +93,7 @@ function Register() {
           backgroundSize: "cover"
         }}
       >
-        <div className="FORM">
+        <div className="FORMTour">
           <form onSubmit={HandelRegister}>
             <h3>Join Us</h3>
             <div className="mb-2">
