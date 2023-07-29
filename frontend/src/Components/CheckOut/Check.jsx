@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Check.css";
-
-import visa from "./images/visa.png";
-import master from "./images/MasterCard.png";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { allData } from "../../context/context";
 const Check = () => {
   const params = useParams();
   const navigat = useNavigate();
+  const [tourCheck , setTourCheck]=useState()
+// const { fetchTours, allTours } = useContext(allData);
+
+
+const fetchTour = async () => {
+  const res = await axios.get(`/Api/JO_IN/tours/${params.id}`);
+  console.log(res.data.data.tour)
+  setTourCheck(res.data.data.tour);
+};
+useEffect(()=>{
+  fetchTour();
+},[]);
+
+
   const handelCheckeout = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
     await axios.post("/Api/JO_IN/userTourRoute", {
@@ -17,122 +29,140 @@ const Check = () => {
     navigat("../");
   };
   return (
-    <section className="checkout-container">
-      <div className="d-flex justify-content-between align-items-center mb-5">
-        <div className="d-flex flex-row align-items-center">
-          <h4 className="text-uppercase mt-1">Eligible</h4>
-          <span className="ms-2 me-3">Pay</span>
-        </div>
-        <a href="#!">Cancel and return to the website</a>
-      </div>
+    <section className="checkoutSec">
+      <div class="row">
+        <div class="col-md-8 mb-4">
+          <div class="card mb-4">
+            <div class="card-header py-3">
+              <h5 class="mb-0">Biling details</h5>
+            </div>
+            <div class="card-body">
+              <form>
+                <h5 class="mb-4">Payment</h5>
 
-      <div className="row">
-        <div className="col-md-7 col-lg-7 col-xl-6 mb-4 mb-md-0">
-          <h5 className="mb-0 text-success">$85.00</h5>
-          <h5 className="mb-3">Diabetes Pump & Supplies</h5>
-          <div>
-            <div className="d-flex justify-content-between">
-              <div className="d-flex flex-row mt-1">
-                <h6>Insurance Responsibility</h6>
-                <h6 className="fw-bold text-success ms-1">$71.76</h6>
-              </div>
-              <div className="d-flex flex-row align-items-center text-primary">
-                <span className="ms-1">Add Insurer card</span>
-              </div>
-            </div>
-            <p>
-              Insurance claim and all necessary dependencies will be submitted to your insurer for the covered portion
-              of this order.
-            </p>
-            <div className="p-2 d-flex justify-content-between align-items-center" style={{ backgroundColor: "#eee" }}>
-              <span>Aetna - Open Access</span>
-              <span>Aetna - OAP</span>
-            </div>
-            <hr />
-            <div className="d-flex justify-content-between align-items-center">
-              <div className="d-flex flex-row mt-1">
-                <h6>Patient Balance</h6>
-                <h6 className="fw-bold text-success ms-1">$13.24</h6>
-              </div>
-              <div className="d-flex flex-row align-items-center text-primary">
-                <span className="ms-1">Add Payment card</span>
-              </div>
-            </div>
-            <p>
-              Insurance claim and all necessary dependencies will be submitted to your insurer for the covered portion
-              of this order.
-            </p>
-            <div className="d-flex flex-column mb-3">
-              <div className="btn-group-vertical" role="group" aria-label="Vertical button group">
-                <input type="radio" className="btn-check" name="options" id="option1" autoComplete="off" />
-                <label className="btn btn-outline-primary btn-lg" htmlFor="option1">
-                  <div className="d-flex justify-content-between">
-                    <span>
-                      <img className="bankimg" src={visa} alt="" />
-                      VISA
-                    </span>
-                    <span>**** 5436</span>
-                  </div>
-                </label>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="checkoutForm3"
+                    checked
+                  />
+                  <label class="form-check-label" for="checkoutForm3">
+                    Credit card
+                  </label>
+                </div>
 
-                <input type="radio" className="btn-check" name="options" id="option2" autoComplete="off" checked />
-                <label className="btn btn-outline-primary btn-lg" htmlFor="option2">
-                  <div className="d-flex justify-content-between">
-                    <span>
-                      <img className="bankimg" src={master} alt="" />
-                      MASTER CARD
-                    </span>
-                    <span>**** 5038</span>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="checkoutForm4"
+                  />
+                  <label class="form-check-label" for="checkoutForm4">
+                    Debit card
+                  </label>
+                </div>
+
+                <div class="form-check mb-4">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="checkoutForm5"
+                  />
+                  <label class="form-check-label" for="checkoutForm5">
+                    Paypal
+                  </label>
+                </div>
+
+                <div class="row mb-4">
+                  <div class="col">
+                    <div class="form-outline">
+                      <input
+                        type="text"
+                        id="formNameOnCard"
+                        class="form-control"
+                      />
+                      <label class="form-label" for="formNameOnCard">
+                        Name on card
+                      </label>
+                    </div>
                   </div>
-                </label>
-              </div>
-            </div>
-            <div className="btn btn-success btn-lg btn-block" onClick={handelCheckeout}>
-              Check out
+                  <div class="col">
+                    <div class="form-outline">
+                      <input
+                        type="text"
+                        id="formCardNumber"
+                        class="form-control"
+                      />
+                      <label class="form-label" for="formCardNumber">
+                        Credit card number
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mb-4">
+                  <div class="col-3">
+                    <div class="form-outline">
+                      <input
+                        type="text"
+                        id="formExpiration"
+                        class="form-control"
+                      />
+                      <label class="form-label" for="formExpiration">
+                        Expiration
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="form-outline">
+                      <input type="text" id="formCVV" class="form-control" />
+                      <label class="form-label" for="formCVV">
+                        CVV
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  className="btn btn-success btn-lg btn-block"
+                  onClick={handelCheckeout}
+                >
+                  Check out
+                </div>
+              </form>
             </div>
           </div>
         </div>
-        <div className="col-md-5 col-lg-4 col-xl-4 offset-lg-1 offset-xl-2">
-          <div className="p-3" style={{ backgroundColor: "#eee" }}>
-            <span className="fw-bold">Order Recap</span>
-            <div className="d-flex justify-content-between mt-2">
-              <span>contracted Price</span> <span>$186.86</span>
+
+        <div class="col-md-4 mb-4">
+          <div class="card mb-4">
+            <div class="card-header py-3">
+              <h5 class="mb-0">Summary</h5>
             </div>
-            <div className="d-flex justify-content-between mt-2">
-              <span>Amount Deductible</span> <span>$0.0</span>
-            </div>
-            <div className="d-flex justify-content-between mt-2">
-              <span>Coinsurance(0%)</span> <span>+ $0.0</span>
-            </div>
-            <div className="d-flex justify-content-between mt-2">
-              <span>Copayment </span> <span>+ $40.00</span>
-            </div>
-            <hr />
-            <div className="d-flex justify-content-between mt-2">
-              <span className="lh-sm">
-                Total Deductible,
-                <br />
-                Coinsurance and copay
-              </span>
-              <span>$40.00</span>
-            </div>
-            <div className="d-flex justify-content-between mt-2">
-              <span className="lh-sm">
-                Maximum out-of-pocket <br />
-                on insurance policy
-              </span>
-              <span>$40.00</span>
-            </div>
-            <hr />
-            <div className="d-flex justify-content-between mt-2">
-              <span>Insurance Responsibility </span> <span>$71.76</span>
-            </div>
-            <div className="d-flex justify-content-between mt-2">
-              <span>Patient Balance </span> <span>$13.24</span>
-            </div>
-            <hr />
-            <div className="d-flex justify-content-between mt-2">
-              <span>Total </span> <span className="text-success">$85.00</span>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                  Tour Price
+                  <span>${tourCheck?.price}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                  discount
+                  <span>-</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                  <div>
+                    <strong>Total amount  : </strong>
+                    
+                  </div>
+                  <span>
+                    <strong>  $ {tourCheck?.price}</strong>
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

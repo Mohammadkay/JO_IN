@@ -50,6 +50,8 @@
 
 .add-product:hover {
     box-shadow: 0 0 10px var(--light-green);
+    color: white;
+    text-decoration: none;
 }
 
 .add-product-select {
