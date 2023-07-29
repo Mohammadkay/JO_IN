@@ -3,8 +3,19 @@ import "./Check.css";
 
 import visa from "./images/visa.png";
 import master from "./images/MasterCard.png";
-
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 const Check = () => {
+  const params = useParams();
+  const navigat = useNavigate();
+  const handelCheckeout = async () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    await axios.post("/Api/JO_IN/userTourRoute", {
+      userId: user._id,
+      tourId: params.id
+    });
+    navigat("../");
+  };
   return (
     <section className="checkout-container">
       <div className="d-flex justify-content-between align-items-center mb-5">
@@ -76,7 +87,9 @@ const Check = () => {
                 </label>
               </div>
             </div>
-            <div className="btn btn-success btn-lg btn-block">Proceed to payment</div>
+            <div className="btn btn-success btn-lg btn-block" onClick={handelCheckeout}>
+              Check out
+            </div>
           </div>
         </div>
         <div className="col-md-5 col-lg-4 col-xl-4 offset-lg-1 offset-xl-2">

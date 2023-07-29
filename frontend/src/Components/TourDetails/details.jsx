@@ -13,13 +13,12 @@ function Details() {
     await setOneTour(res.data.data.tour);
   };
 
-
   const getuser = async () => {
     if (oneTour && oneTour.userId) {
       const res2 = await axios.get(`/Api/JO_IN/users/${oneTour.userId}`);
       setvendor(res2.data.data.user);
     }
-  }; 
+  };
   useEffect(() => {
     fetchTour();
   }, []);
@@ -49,7 +48,7 @@ function Details() {
           </div>
           <span>{oneTour?.price}</span>
           <div className="options">
-            <Link  to="../CheckOut">Book Now</Link>
+            <Link to={`../CheckOut/${oneTour?._id}`}>Book Now</Link>
           </div>
         </div>
         <div className="description">

@@ -6,7 +6,6 @@ exports.getUserTours = async (req, res) => {
     const userTours = await UserTour.find();
     res.status(200).json({
       status: "success",
-      results: Tour.length,
       data: {
         userTours
       }

@@ -27,7 +27,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/TourList" element={<TourList />} />
         <Route path="/TourList/TourDetails/:id" element={<TourDetails />} />
-        <Route path="/CheckOut" element={<Check />} />
+        <Route path="/CheckOut/:id" element={<Check />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Choose" element={<Choose />} />
         <Route path="/Choose/:id" element={<Register />} />

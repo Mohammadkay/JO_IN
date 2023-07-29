@@ -12,8 +12,7 @@ function Sidebar() {
   return (
     <div className="bg-white sidebar p-2">
       <div className="m-2">
-        <i className="bi bi-bootstrap-fill me-3 fs-4"></i>
-        <span className="brand-name fs-4">user</span>
+        <img src="./image/Logo.png" style={{ width: "13vw" }} />
       </div>
       <hr className="text-dark" />
       <div className="list-group list-group-flush">

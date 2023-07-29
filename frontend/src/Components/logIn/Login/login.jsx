@@ -38,7 +38,6 @@ function Login() {
 
       // Compare the provided password with the hashed password stored in the user object
       const passwordMatches = await bcrypt.compare(passwordRef.current.value, user.password);
-      console.log(passwordMatches);
       if (passwordMatches) {
         // Passwords match, you can proceed with setting the current user
         localStorage.setItem("user", JSON.stringify(user));
@@ -88,7 +87,6 @@ function Login() {
             <h6>
               Don't Have Account?
               <Link to="/Choose" className="text-light">
-                {" "}
                 Sign Up
               </Link>
             </h6>

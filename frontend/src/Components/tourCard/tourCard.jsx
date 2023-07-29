@@ -3,9 +3,17 @@ import "./tourCard.css";
 import { useNavigate } from "react-router-dom";
 function TourCard({ image, price, name, duration, id }) {
   const navigate = useNavigate();
+  const handelDetails = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      navigate(`/TourList/TourDetails/${id}`);
+    } else {
+      navigate(`../Login`);
+    }
+  };
   return (
     <>
-      <div className="discover-card" onClick={() => navigate(`/TourList/TourDetails/${id}`)}>
+      <div className="discover-card" onClick={handelDetails}>
         <img src={image} alt="" />
         <h2 className="dicover-title-card">{name}</h2>
 
