@@ -1,54 +1,39 @@
 const mongoose = require("mongoose");
-const User =require("./userModel")
+const User = require("./userModel");
 const tourSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "This tour must have a name"],
     unique: true,
-    trim: true,
+    trim: true
   },
   duration: {
     type: Number,
-    required: [true, "This tour must have a duration"],
-  },
-  maxGroupSize: {
-    type: Number,
-    required: [true, "This tour must have a Size"],
-  },
-  difficulty: {
-    type: String,
-    required: [true, "This tour must have a difficulty"],
+    required: [true, "This tour must have a duration"]
   },
 
-  ratingAverage: {
-    type: Number,
-    default: 4.5,
-  },
   price: {
     type: Number,
-    required: [true, "This tour must have a price"],
+    required: [true, "This tour must have a price"]
   },
   summary: {
     type: String,
     trim: true,
-    required: [true, "This tour must have a summary"],
+    required: [true, "This tour must have a summary"]
   },
   description: {
     type: String,
-    trim: true,
+    trim: true
   },
 
-  images: [String],
-  createAt: {
-    type: Date,
-    default: Date.now(),
-    select: false,
+  images: {
+    type: String
   },
-  startDate: [Date],
+  
   userId: {
     type: mongoose.Schema.ObjectId,
-    ref: "User",
-  },
+    ref: "User"
+  }
 });
 
 const Tour = mongoose.model("Tour", tourSchema);

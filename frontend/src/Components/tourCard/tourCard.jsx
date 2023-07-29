@@ -3,7 +3,6 @@ import "./tourCard.css";
 import { useNavigate } from "react-router-dom";
 function TourCard({ image, price, name, duration, id }) {
   const navigate = useNavigate();
-  console.log(id);
   return (
     <>
       <div className="discover-card" onClick={() => navigate(`/TourList/TourDetails/${id}`)}>

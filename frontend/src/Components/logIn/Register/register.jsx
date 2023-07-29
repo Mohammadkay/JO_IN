@@ -62,8 +62,8 @@ function Register() {
       // Send a POST request to your authentication API endpoint
       // Replace 'YOUR_API_ENDPOINT' with the actual endpoint
       const response = await axios.post("/Api/JO_IN/users", newUser);
-      console.log(response.data); // Assuming the response contains the user data or a success message
-      alert("Registration successful!");
+       // Assuming the response contains the user data or a success message
+      
       navigate("/login"); // Redirect to the login page after successful registration
     } catch (error) {
       console.error(error);

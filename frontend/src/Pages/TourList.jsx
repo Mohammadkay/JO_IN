@@ -50,9 +50,10 @@ function TourList() {
                 key={item._id}
                 name={item.name}
                 price={item.price}
-                // image={item.images}
+                 image={item.images}
                 duration={item.duration}
                 id={item._id}
+
               />
 
               //   <BadgeCard

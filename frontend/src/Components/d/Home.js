@@ -6,7 +6,8 @@ import { allData } from "../../context/context";
 import "./styleHome.css";
 function Home({ Toggle }) {
   const { fetchTours, allTours } = useContext(allData);
-  const Params = useParams();
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user);
   return (
     <div className="px-3">
       <Nav Toggle={Toggle} />
@@ -22,7 +23,7 @@ function Home({ Toggle }) {
         </thead>
         <tbody>
           {allTours
-            .filter((tour) => Params.id === tour?.userId)
+            .filter((tour) => user._id === tour?.userId)
             .map((tour) => (
               <tr key={tour?._id}>
                 <th scope="row">{tour?.name}</th>

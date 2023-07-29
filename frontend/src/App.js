@@ -27,12 +27,13 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/TourList" element={<TourList />} />
         <Route path="/TourList/TourDetails/:id" element={<TourDetails />} />
-        <Route path="/TourList/TourDetails/CheckOut" element={<Check />} />
+        <Route path="/CheckOut" element={<Check />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Choose" element={<Choose />} />
         <Route path="/Choose/:id" element={<Register />} />
-        <Route path="/dash/:id" element={<Dash />}></Route>
+        <Route path="/dash" element={<Dash />}></Route>
         <Route path="/addTour" element={<FromDash />}></Route>
+        <Route path="/History" element={<HistorySection />}></Route>
       </Routes>
       <Footer />
     </div>

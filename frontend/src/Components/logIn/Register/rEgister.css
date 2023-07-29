@@ -3,13 +3,10 @@
     text-align: center;
 }
 form{
-    
-   
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
-  
 }
 .register{
     

@@ -1,40 +1,45 @@
 import React, { useEffect, useState } from "react";
 // import "./css/all.min.css";
 import "./css/style.css";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 function Details() {
   const params = useParams();
   const [oneTour, setOneTour] = useState();
+  const [vendor, setvendor] = useState();
   const fetchTour = async () => {
     const res = await axios.get(`/Api/JO_IN/tours/${params.id}`);
-    setOneTour(res.data.data.tour);
+    await setOneTour(res.data.data.tour);
   };
+
+
+  const getuser = async () => {
+    if (oneTour && oneTour.userId) {
+      const res2 = await axios.get(`/Api/JO_IN/users/${oneTour.userId}`);
+      setvendor(res2.data.data.user);
+    }
+  }; 
   useEffect(() => {
     fetchTour();
   }, []);
 
-  console.log(oneTour);
-
+  useEffect(() => {
+    getuser();
+  }, [oneTour]);
   return (
     <div className="Card-container">
+      {console.log()}
       <div className="box">
         <div className="images">
           <div className="img-holder active">
-            <img src="" alt="" />
-          </div>
-          <div className="img-holder">
-            <img src="" alt="" />
-          </div>
-          <div className="img-holder">
-            <img src="" alt="" />
-          </div>
-          <div className="img-holder">
-            <img src="" alt="" />
+            <img src={oneTour?.images} alt="" />
           </div>
         </div>
         <div className="basic-info">
           <h1>{oneTour?.name}</h1>
+          <h2>{vendor?.name}</h2>
+
           <div className="rate">
             <i className="filled fas fa-star" />
             <i className="filled fas fa-star" />
@@ -44,7 +49,7 @@ function Details() {
           </div>
           <span>{oneTour?.price}</span>
           <div className="options">
-            <a href="!#">Book Now</a>
+            <Link  to="../CheckOut">Book Now</Link>
           </div>
         </div>
         <div className="description">
