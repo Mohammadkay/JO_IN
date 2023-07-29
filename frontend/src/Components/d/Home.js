@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Nav from "./Nav";
 import { useContext } from "react";
 import { allData } from "../../context/context";
@@ -7,12 +7,14 @@ import Swal from "sweetalert2";
 import "./styleHome.css";
 import axios from "axios";
 function Home({ Toggle }) {
-  const { fetchTours, allTours } = useContext(allData);
-  const user = JSON.parse(localStorage.getItem("user"));
+  const { fetchTours, allTours, setIsActive } = useContext(allData);
 
+  const user = JSON.parse(localStorage.getItem("user"));
+    const navigate=useNavigate()
   useEffect(() => {
     fetchTours();
   }, []);
+
 
   const deleteTour = async (id) => {
     Swal.fire({
@@ -26,13 +28,22 @@ function Home({ Toggle }) {
       }
     });
   };
-
   return (
     <div className="px-3">
       <Nav Toggle={Toggle} />
       <Link to="/addTour" className="dash-add-product">
         Add Tour
       </Link>
+      <button
+        className="btn btn-primary"
+        onClick={() => {
+          localStorage.clear();
+          setIsActive(false);
+          navigate("../Login");
+        }}
+      >
+        <i className="bi bi-power fs-5 me-3"></i> Logout
+      </button>
       <table className="table caption-top bg-white rounded mt-2">
         <thead>
           <tr>

@@ -66,23 +66,33 @@ function Login() {
         style={{
           backgroundImage: `url(${Petra})`,
           minHeight: "80vh",
-          backgroundSize: "cover"
+          backgroundSize: "cover",
         }}
       >
         <div className="LoginForm">
-          <form onSubmit={handelLogin}>
+          <form className="form-b" onSubmit={handelLogin}>
             <h3>Welcome Again</h3>
             <div className="mb-5">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Email address
               </label>
-              <input type="email" ref={emailRef} className="form-control" id="exampleInputEmail1" />
+              <input
+                type="email"
+                ref={emailRef}
+                className="form-control"
+                id="exampleInputEmail1"
+              />
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">
                 Password
               </label>
-              <input type="password" className="form-control" ref={passwordRef} id="exampleInputPassword1" />
+              <input
+                type="password"
+                className="form-control"
+                ref={passwordRef}
+                id="exampleInputPassword1"
+              />
             </div>
             <h6>
               Don't Have Account?
