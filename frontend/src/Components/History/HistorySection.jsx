@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./History.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const HistorySection = () => {
   // Sample history data
@@ -9,6 +10,7 @@ const HistorySection = () => {
   const [Tours, setTours] = useState([]);
   const [Tourshis, setTourshis] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate()
 
   const fetchHistory = async () => {
     const res = await axios.get("/Api/JO_IN/userTourRoute");
@@ -49,7 +51,7 @@ const HistorySection = () => {
             </div>
           ))}
         </div>
-        <button type="submit" className="btn ">
+        <button onClick={()=>navigate("../")} type="submit" className="btn ">
           Back
         </button>
       </div>

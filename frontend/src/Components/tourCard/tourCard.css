@@ -105,7 +105,15 @@
 }
 
 
+.page-tour {
+    display: grid;
+    justify-content: center
+}
 
+
+.page-link {
+    color: #295943 !important;
+}
 
 
 @media screen and (max-width: 768px) {
