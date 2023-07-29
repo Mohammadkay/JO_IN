@@ -1,11 +1,13 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Nav from "./Nav";
 import { useContext } from "react";
 import { allData } from "../../context/context";
 import "./styleHome.css";
 function Home({ Toggle }) {
   const { fetchTours, allTours } = useContext(allData);
+  const { setIsActive } = useContext(allData);
+  const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
   console.log(user);
   return (
@@ -34,6 +36,16 @@ function Home({ Toggle }) {
             ))}
         </tbody>
       </table>
+<button
+        className="btn btn-primary"
+        onClick={() => {
+          localStorage.clear();
+          setIsActive(false);
+          navigate("../Login");
+        }}
+      >
+        <i className="bi bi-power fs-5 me-3"></i> Logout
+      </button>
     </div>
   );
 }

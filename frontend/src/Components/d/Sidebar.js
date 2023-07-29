@@ -1,12 +1,11 @@
 import { useContext } from "react";
 import { allData } from "../../context/context";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Sidebar() {
   const { setIsActive } = useContext(allData);
+  const navigate = useNavigate();
   const handelLogout = () => {
-    localStorage.clear();
-    setIsActive(false);
     // Update login status when logging out
   };
   return (
@@ -32,12 +31,16 @@ function Sidebar() {
         <a className="list-group-item py-2">
           <i className="bi bi-people fs-5 me-3"></i> <span>Customers</span>
         </a>
-        <a className="list-group-item py-2">
-          <i className="bi bi-power fs-5 me-3"></i>{" "}
-          <Link to="/Login" onClick={handelLogout}>
-            Logout
-          </Link>
-        </a>
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            localStorage.clear();
+            setIsActive(false);
+            navigate("../Login");
+          }}
+        >
+          <i className="bi bi-power fs-5 me-3"></i> Logout
+        </button>
       </div>
     </div>
   );

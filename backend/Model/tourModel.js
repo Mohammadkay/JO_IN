@@ -4,7 +4,6 @@ const tourSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "This tour must have a name"],
-    unique: true,
     trim: true
   },
   duration: {
@@ -29,7 +28,7 @@ const tourSchema = new mongoose.Schema({
   images: {
     type: String
   },
-  
+
   userId: {
     type: mongoose.Schema.ObjectId,
     ref: "User"
