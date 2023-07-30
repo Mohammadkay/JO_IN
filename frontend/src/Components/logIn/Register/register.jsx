@@ -2,7 +2,7 @@ import React from "react";
 import "./rEgister.css";
 import Sea from "./deadsea.jpg";
 import { Link } from "react-router-dom";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import axios from "axios";
@@ -18,7 +18,7 @@ function Register() {
 
   const HandelRegister = async (e) => {
     e.preventDefault();
-    // Get form values 
+    // Get form values
     const name = userNameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
@@ -30,11 +30,11 @@ function Register() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       Swal.fire({
-        title: 'Error!',
-        text: 'Invalid email address. Please enter a valid email.',
-        icon: 'error',
-        confirmButtonText: 'OK'
-      })
+        title: "Error!",
+        text: "Invalid email address. Please enter a valid email.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
       return;
     }
 
@@ -42,22 +42,22 @@ function Register() {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
     if (!passwordRegex.test(password)) {
       Swal.fire({
-        title: 'Error!',
-        text: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long.',
-        icon: 'error',
-        confirmButtonText: 'OK'
-      })
+        title: "Error!",
+        text: "Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
       return;
     }
 
     // Password and Retype password check
     if (password !== repassword) {
       Swal.fire({
-        title: 'Error!',
-        text: 'Passwords do not match.',
-        icon: 'error',
-        confirmButtonText: 'OK'
-      })
+        title: "Error!",
+        text: "Passwords do not match.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
       return;
     }
 
@@ -69,14 +69,14 @@ function Register() {
       phoneNumber: phoneNumber,
       Address: Address,
       isActive: true,
-      roleId: params.id
+      roleId: params.id,
     };
     try {
       // Send a POST request to your authentication API endpoint
       // Replace 'YOUR_API_ENDPOINT' with the actual endpoint
       const response = await axios.post("/Api/JO_IN/users", newUser);
-       // Assuming the response contains the user data or a success message
-      
+      // Assuming the response contains the user data or a success message
+
       navigate("/login"); // Redirect to the login page after successful registration
     } catch (error) {
       console.error(error);
@@ -122,7 +122,7 @@ function Register() {
               </label>
               <input
                 type="password"
-                className="form-control"
+                className="form-control "
                 id="exampleInputPassword1"
                 ref={passwordRef}
               />
@@ -144,7 +144,7 @@ function Register() {
             </label>
             <input
               type="numeric"
-              className="form-control"
+              className="form-control phone_input"
               id="phone"
               ref={phoneRef}
             />
