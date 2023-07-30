@@ -27,8 +27,7 @@ function Details() {
     getuser();
   }, [oneTour]);
   return (
-    <div className="Card-container">
-      {console.log()}
+    <div className="Card-container">  
       <div className="box">
         <div className="images">
           <div className="img-holder active">

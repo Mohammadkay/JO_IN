@@ -22,19 +22,19 @@ export default function Nav() {
 
   const isLogin = () => {
     // Use the state to track the login status
-    if (JSON.parse(localStorage.getItem("user")) !== null) {
+    if (JSON.parse(sessionStorage.getItem("user")) !== null) {
       setIsActive(true);
     } else {
       setIsActive(false);
     }
   };
   const cheackid = () => {
-    const x = JSON.parse(localStorage.getItem("user"));
+    const x = JSON.parse(sessionStorage.getItem("user"));
     if (x) setUserID(x.roleId);
   };
 
   const handelLogout = () => {
-    localStorage.clear();
+    sessionStorage.clear();
     setIsActive(false); // Update login status when logging out
   };
   console.log(userID);
