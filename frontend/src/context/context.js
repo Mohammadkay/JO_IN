@@ -15,7 +15,6 @@ export function Provider({ children }) {
     const res = await axios.get("/Api/JO_IN/users");
     setAllUsers(res.data.data.users);
   };
-  console.log(AllUsers);
 
   const dataToShare = {
     fetchTours,
