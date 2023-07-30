@@ -21,7 +21,7 @@ function Login() {
 
   useEffect(() => {
     fetchUser();
-    localStorage.clear();
+    sessionStorage.clear();
     setUserID(null);
   }, []);
 
@@ -40,7 +40,8 @@ function Login() {
       const passwordMatches = await bcrypt.compare(passwordRef.current.value, user.password);
       if (passwordMatches) {
         // Passwords match, you can proceed with setting the current user
-        localStorage.setItem("user", JSON.stringify(user));
+        sessionStorage.setItem("user", JSON.stringify(user));
+        
         if (user.roleId == 1) {
           navigate("/TourList");
           setIsActive(true);

@@ -21,7 +21,7 @@ useEffect(()=>{
 
 
   const handelCheckeout = async () => {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(sessionStorage.getItem("user"));
     await axios.post("/Api/JO_IN/userTourRoute", {
       userId: user._id,
       tourId: params.id

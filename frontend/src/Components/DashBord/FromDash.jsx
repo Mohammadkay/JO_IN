@@ -6,7 +6,7 @@ import axios from "axios";
 import { allData } from "../../context/context";
 import { useNavigate } from "react-router-dom";
 function FromDash() {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(sessionStorage.getItem("user"));
   const [form, setForm] = useState({
     name: "",
     duration: "",

@@ -9,7 +9,7 @@ import axios from "axios";
 function Home({ Toggle }) {
   const { fetchTours, allTours, setIsActive } = useContext(allData);
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(sessionStorage.getItem("user"));
   const navigate = useNavigate();
   useEffect(() => {
     fetchTours();
@@ -36,7 +36,7 @@ function Home({ Toggle }) {
         <button
           className="btn btn-primary col-4"
           onClick={() => {
-            localStorage.clear();
+            sessionStorage.clear();
             setIsActive(false);
             navigate("../Login");
           }}

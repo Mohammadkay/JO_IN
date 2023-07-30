@@ -9,7 +9,7 @@ const HistorySection = () => {
   const [historyDat, setHistoryData] = useState([]);
   const [Tours, setTours] = useState([]);
   const [Tourshis, setTourshis] = useState([]);
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(sessionStorage.getItem("user"));
   const navigate = useNavigate()
 
   const fetchHistory = async () => {

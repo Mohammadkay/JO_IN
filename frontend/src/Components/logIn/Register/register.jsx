@@ -18,7 +18,7 @@ function Register() {
 
   const HandelRegister = async (e) => {
     e.preventDefault();
-    // Get form values
+    // Get form values 
     const name = userNameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
